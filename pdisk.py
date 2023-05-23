@@ -8,7 +8,7 @@ def pdisk_url(api_key:str , link:str , title :str , thumb = None ):
 	                     "title": title,
 	                     "cover_url":thumb
 	                  } 	
-			res = re.post("http://linkapi.net/open/create_item",data).content
+			res = re.post("https://pdisk.pro/api/upload/server?key",data).content
 			result = json.loads(res)
 			return result
 		else:
@@ -17,13 +17,13 @@ def pdisk_url(api_key:str , link:str , title :str , thumb = None ):
 	                    "link_type":"link",
 	                     "title": title ,
 	                  }
-			res = re.post('http://linkapi.net/open/create_item',data).content
+			res = re.post('https://pdisk.pro/api/upload/server?key',data).content
 			result = json.loads(res)
 			return result 
 			
 def api_check(api_key):
 	data = {"api_key":api_key}
-	res = re.get('http://linkapi.net/open/get_put_link',data).content
+	res = re.get('https://fs9.pdisk.pro/cgi-bin/upload.cgi',data).content
 	result = json.loads(res)
 	return result
 				                                                                                                                                                      				                                                                                                           
