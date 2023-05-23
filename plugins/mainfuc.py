@@ -62,7 +62,7 @@ async def get_uptime(client, m: Message):
 
 @Client.on_message(filters.private & filters.command(['connect']))
 async def connect(client,message):
-	await message.reply_text('Send Me Your api_key from pdisk\nhttps://www.cofilink.com/use-api',reply_to_message_id = message.message_id,reply_markup=ForceReply(True))
+	await message.reply_text('Send Me Your api_key from pdisk\nhttps://pdisk.pro/api',reply_to_message_id = message.message_id,reply_markup=ForceReply(True))
 	            
 
 @Client.on_message(filters.private & filters.reply)
@@ -102,7 +102,7 @@ async def upload(client,message):
 			res = pdisk_url(api_key,link,title,thumb)
 			try:
 				id = res['data']['item_id']
-				await message.reply_text(f'Title : {title}\n\nURL : ```https://cofilink.com/share-video?videoid={id}```\n\n**This File Will Be Uploading in  10 - 15 Minutes **',reply_to_message_id = message.message_id)
+				await message.reply_text(f'Title : {title}\n\nURL : ```https://pdisk.pro/api/upload/server?key={id}```\n\n**This File Will Be Uploading in  10 - 15 Minutes **',reply_to_message_id = message.message_id)
 			except:
 				e = res['msg']
 				await message.reply_text(f"Error: ```{e}```",reply_to_message_id = message.message_id)
@@ -110,7 +110,7 @@ async def upload(client,message):
 			res = pdisk_url(api_key,link,title)
 			try:
 				id = res['data']['item_id']
-				await message.reply_text(f'Title : {title}\nURL:```https://cofilink.com/share-video?videoid={id}```\n\n This File Will Be Uploading in  10 - 15 Minutes ',reply_to_message_id = message.message_id)
+				await message.reply_text(f'Title : {title}\nURL:```https://pdisk.pro/api/upload/server?key={id}```\n\n This File Will Be Uploading in  10 - 15 Minutes ',reply_to_message_id = message.message_id)
 			except:
 				e = res['msg']
 				await message.reply_text(f"Error:```{e}```",reply_to_message_id = message.message_id)
